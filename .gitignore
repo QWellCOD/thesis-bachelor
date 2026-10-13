@@ -24,13 +24,22 @@
 *.glo
 *.gls
 *.ist
+*.glsdefs
+*.xdv
+*.dvi
+*-SAVE-ERROR
 _minted*/
+
+# latexdiff output (scripts/latexdiff.ps1)
+/main-diff.tex
 
 # latexindent
 indent.log
 *.bak[0-9]*
 __latexindent_temp*
 
-# OS
+# OS and Office lock files
 Thumbs.db
 desktop.ini
+~$*
+.~lock.*#

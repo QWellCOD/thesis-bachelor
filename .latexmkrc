@@ -1,4 +1,7 @@
-# latexmk configuration, used by LaTeX Workshop and by `latexmk` on the command line.
+# latexmk configuration, used by LaTeX Workshop and by `latexmk` in the terminal.
+
+# Plain `latexmk` builds only the thesis, not generated files such as main-diff.tex
+@default_files = ('main.tex');
 
 # pdfLaTeX; -shell-escape is required by minted
 $pdf_mode = 1;

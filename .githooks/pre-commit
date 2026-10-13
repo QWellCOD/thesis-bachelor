@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Blocks commits with files > 10 MB that are not stored via Git LFS.
+# LFS files are only small pointers in the index, so every large staged blob is a plain Git file.
+# Activate once per clone: git config core.hooksPath .githooks
+
+limit=$((10 * 1024 * 1024))
+too_big=()
+
+while IFS= read -r -d '' file; do
+  size=$(git cat-file -s ":$file" 2>/dev/null) || continue
+  if [ "$size" -gt "$limit" ]; then
+    too_big+=("$file ($((size / 1024 / 1024)) MB)")
+  fi
+done < <(git diff --cached --name-only --diff-filter=AM -z)
+
+if [ ${#too_big[@]} -gt 0 ]; then
+  echo "Commit blocked: these files are larger than 10 MB and not stored via Git LFS:" >&2
+  printf '  %s\n' "${too_big[@]}" >&2
+  echo "Fix: git lfs track \"*.<extension>\", then git add .gitattributes and git add --renormalize <file>" >&2
+  exit 1
+fi

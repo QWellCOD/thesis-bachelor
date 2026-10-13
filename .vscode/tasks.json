@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "latexdiff: mark changes since a Git revision",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/latexdiff.ps1",
+        "${input:diffRevision}"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "diffRevision",
+      "type": "promptString",
+      "description": "Git revision to compare against (commit, tag such as v1, or HEAD = last commit)",
+      "default": "HEAD"
+    }
+  ]
+}

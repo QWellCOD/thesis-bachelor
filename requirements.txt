@@ -1,3 +1,4 @@
-# minted backend: 0.5.1 matches minted.sty 3.6.0 in MiKTeX 25.3 (0.7+ needs minted.sty >= 3.8)
-# and needs Python 3.13 (crashes on 3.14). Install: python -m pip install -r requirements.txt
+# minted backend for the Bosch PC only (MiKTeX 25.3, minted.sty 3.6.0); 0.7+ needs minted.sty >= 3.8
+# and 0.5.1 needs Python 3.13 (crashes on 3.14). Install: python -m pip install -r requirements.txt
+# Other machines: TeX Live already bundles a matching latexminted, only Python itself is needed.
 latexminted==0.5.1
