@@ -1,0 +1,36 @@
+# latexmk output directory (PDF, auxiliary files, minted cache)
+/build/
+
+# Auxiliary files, in case something is compiled outside build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.lol
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+_minted*/
+
+# latexindent
+indent.log
+*.bak[0-9]*
+__latexindent_temp*
+
+# OS
+Thumbs.db
+desktop.ini

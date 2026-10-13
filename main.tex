@@ -1,0 +1,81 @@
+% Toolchain test document; will be replaced by the thesis template in the next step.
+\documentclass[a4paper, 12pt]{scrreprt}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{minted}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{microtype}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[acronym, toc]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
+\makeglossaries
+
+\usepackage[ngerman]{cleveref}
+\crefname{listing}{Listing}{Listings}
+
+\newacronym{api}{API}{Application Programming Interface}
+\newglossaryentry{latex}{
+  name={\LaTeX},
+  sort={LaTeX},
+  description={Textsatzsystem auf Basis von \TeX}
+}
+
+\title{Toolchain-Test}
+\author{Vorname Nachname}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Funktionstest}
+
+Umlaute und Silbentrennung: Übergrößenträger, Straßenbahnhaltestelle,
+\enquote{deutsche Anführungszeichen}.
+
+Literatur: \textcite{knuth1984} beschreibt \TeX{}, \LaTeX{} wurde von
+\citeauthor{lamport1994} entwickelt \autocite{lamport1994}.
+
+Glossar: Eine \gls{api} wird beim zweiten Mal nur als \gls{api} abgekürzt.
+Gesetzt wird mit \gls{latex}.
+
+Querverweise: siehe \cref{fig:plot} und \cref{lst:hallo}.
+
+\begin{listing}[htbp]
+  \begin{minted}{python}
+def gruss(name: str) -> str:
+    return f"Hallo, {name}!"
+  \end{minted}
+  \caption{Python-Beispiel mit minted}
+  \label{lst:hallo}
+\end{listing}
+
+Inline-Code: \mintinline{python}{print(gruss("Welt"))}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=0.7\textwidth, xlabel={$x$}, ylabel={$x^2$}, grid=major]
+      \addplot[domain=-2:2, samples=50, thick, blue] {x^2};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Testplot mit pgfplots}
+  \label{fig:plot}
+\end{figure}
+
+\printglossary[type=\acronymtype, title={Abkürzungsverzeichnis}]
+\printglossary[title={Glossar}]
+\printbibliography
+
+\end{document}

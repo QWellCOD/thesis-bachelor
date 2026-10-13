@@ -1,0 +1,5 @@
+# Project settings for latexindent (passed via -l in .vscode/settings.json)
+indentPreamble: 1
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
