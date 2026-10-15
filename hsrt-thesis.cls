@@ -164,7 +164,7 @@
       \centering
       \includegraphics[height=2.4cm]{assets/Logos/Bosch/Bosch_symbol_logo_black}%
       \hspace{1.5cm}%
-      \includegraphics[height=2.2cm]{assets/Logos/INF/Simple_BW}%
+      \includegraphics[height=1.8cm]{assets/Logos/INF/Simple_BW}%
     \end{minipage}\par
     \vspace{1cm}
   \end{titlepage}
