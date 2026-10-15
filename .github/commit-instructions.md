@@ -29,7 +29,7 @@ Use exactly one of:
 | `feat`     | New or extended content or functionality      | New section, paragraph, figure, table, listing, acronym; new class feature     |
 | `fix`      | Corrections that change meaning or output     | Wrong statement or value, wrong citation, broken reference, build or layout bug |
 | `build`    | Build process and toolchain                   | `.latexmkrc`, `requirements.txt`, `scripts/latexdiff.ps1`                      |
-| `ci`       | Repository infrastructure, no effect on PDF   | `.githooks/`, `.gitattributes`, Git LFS, `.vscode/`, `.editorconfig`, `latexindent.yaml` |
+| `ci`       | Repository infrastructure, no effect on PDF   | `.githooks/`, `.gitattributes`, `.vscode/`, `.editorconfig`, `latexindent.yaml` |
 | `refactor` | Restructuring without changing content        | Move or split sections, rename labels or files, reorder chapters               |
 | `docs`     | Repository documentation, **not** the thesis  | `AGENTS.md`, this file                                                         |
 | `chore`    | Minor changes without impact on content       | Typos, wording polish, formatting, `.gitignore`, standalone Zotero export      |
@@ -52,7 +52,7 @@ Use one of these scopes; omit the scope if a commit spans several areas.
   `anhang-a`, `ki-hilfsmittel`
 - Thesis infrastructure: `main` (`main.tex`), `class` (`hsrt-thesis.cls`),
   `bib` (`references.bib`), `acronyms`, `figures`, `code`
-- Tooling: `latexmk`, `latexdiff`, `hooks`, `lfs`, `vscode`, `agents`
+- Tooling: `latexmk`, `latexdiff`, `hooks`, `git`, `vscode`, `agents`
 
 New chapters use their new file name as scope.
 
@@ -93,7 +93,7 @@ New chapters use their new file name as scope.
 
     build(latexmk): run makeglossaries for the acronym list
 
-    ci(hooks): block plain files larger than 10 MB
+    ci(hooks): block files larger than 10 MiB
 
     docs(agents): describe commit message rules
 

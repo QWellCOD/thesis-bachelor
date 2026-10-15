@@ -30,7 +30,7 @@ assets/                Logos, official declaration form (Eigenstaendigkeitserkla
 scripts/latexdiff.ps1  Builds build/main-diff.pdf with changes since a Git revision
 .latexmkrc             All build options (engine, out_dir, biber, makeglossaries)
 latexindent.yaml       Formatter settings (LaTeX Workshop formats on save)
-.githooks/             Git LFS hooks + pre-commit guard against plain files > 10 MB
+.githooks/             Pre-commit guard against files > 10 MiB
 .vscode/               LaTeX Workshop recipe, LTeX+ (de-DE) config, latexdiff task
 requirements.txt       Python package latexminted (needed by minted 3 on MiKTeX)
 build/                 Generated output: main.pdf, aux files, minted cache (git-ignored)
@@ -42,7 +42,7 @@ build/                 Generated output: main.pdf, aux files, minted cache (git-
 - biblatex with biber, `style=apa`
 - glossaries-extra (acronyms only), `makeglossaries` is run by latexmk
 - minted 3: requires `-shell-escape` (set in `.latexmkrc`) and Python package `latexminted`
-- Git LFS for all binary files (`.gitattributes`)
+- Binary assets stored directly in Git, without Git LFS (`.gitattributes`)
 
 Not used: Tectonic, XeLaTeX/LuaLaTeX, Make, Docker, CI.
 
@@ -126,5 +126,6 @@ latexmk -c     # remove auxiliary files
 - Commit messages follow [.github/commit-instructions.md](.github/commit-instructions.md): Conventional Commits `type(scope): subject`, English, max. 72 characters per line. Scope = chapter file name without number (e.g. `grundlagen`) or `class`, `bib`, `latexmk`, ... Thesis text is content (`feat`/`fix`/`refactor`/`chore`), never `docs`.
 - Commits with AI contributions get the trailer `AI-assisted: <tool> (<purpose>)`.
 - Every commit should build; tag versions handed to the examiners (`v1`, `v2`, ...) for latexdiff.
-- Once per clone: `git config core.hooksPath .githooks` (activates the Git LFS hooks and the 10 MB guard).
-- New binary file types: `git lfs track "*.ext"` and commit `.gitattributes` together with the file.
+- Once per clone: `git config core.hooksPath .githooks` (activates the 10 MiB guard).
+- Store binary assets directly in Git; do not enable Git LFS. Keep files at or below 10 MiB; reduce larger files or use approved external storage.
+- New binary file types: add `*.ext binary -filter` to `.gitattributes` and commit it together with the file.

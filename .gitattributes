@@ -1,30 +1,29 @@
 * text=auto eol=lf
 
-# Binary files are stored via Git LFS: keeps the history small, no 100 MB GitHub limit
+# Binary files are stored directly in Git without content filters.
 # Images
-*.png  filter=lfs diff=lfs merge=lfs -text
-*.jpg  filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.gif  filter=lfs diff=lfs merge=lfs -text
-*.bmp  filter=lfs diff=lfs merge=lfs -text
-*.tif  filter=lfs diff=lfs merge=lfs -text
-*.tiff filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
+*.png  binary -filter
+*.jpg  binary -filter
+*.jpeg binary -filter
+*.gif  binary -filter
+*.bmp  binary -filter
+*.tif  binary -filter
+*.tiff binary -filter
+*.webp binary -filter
 # PDF and vector/print formats
-*.pdf  filter=lfs diff=lfs merge=lfs -text
-*.eps  filter=lfs diff=lfs merge=lfs -text
-*.psd  filter=lfs diff=lfs merge=lfs -text
-*.ai   filter=lfs diff=lfs merge=lfs -text
+*.pdf  binary -filter
+*.eps  binary -filter
+*.psd  binary -filter
+*.ai   binary -filter
 # Office and Visio
-*.docx filter=lfs diff=lfs merge=lfs -text
-*.xlsx filter=lfs diff=lfs merge=lfs -text
-*.pptx filter=lfs diff=lfs merge=lfs -text
-*.vsdx filter=lfs diff=lfs merge=lfs -text
+*.docx binary -filter
+*.xlsx binary -filter
+*.pptx binary -filter
+*.vsdx binary -filter
 # Archives, video, fonts
-*.zip  filter=lfs diff=lfs merge=lfs -text
-*.7z   filter=lfs diff=lfs merge=lfs -text
-*.mp4  filter=lfs diff=lfs merge=lfs -text
-*.mov  filter=lfs diff=lfs merge=lfs -text
-*.ttf  filter=lfs diff=lfs merge=lfs -text
-*.otf  filter=lfs diff=lfs merge=lfs -text
-* !text !filter !merge !diff
+*.zip  binary -filter
+*.7z   binary -filter
+*.mp4  binary -filter
+*.mov  binary -filter
+*.ttf  binary -filter
+*.otf  binary -filter
