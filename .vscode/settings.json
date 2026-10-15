@@ -18,8 +18,8 @@
   "latex-workshop.latex.clean.args": ["-c", "%TEX%"],
   "latex-workshop.latex.search.rootFiles.include": ["main.tex"],
 
-  // Word count in the status bar
-  "latex-workshop.texcount.args": ["-utf8"],
+  // Word count in the status bar; -inc follows \include'd chapters
+  "latex-workshop.texcount.args": ["-utf8", "-inc"],
   "latex-workshop.texcount.autorun": "onSave",
 
   // Formatting with latexindent; log goes to a temp dir instead of the project
@@ -67,5 +67,8 @@
   },
   "ltex.latex.environments": {
     "minted": "ignore"
-  }
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "file": ".github/commit-instructions.md" }
+  ],
 }

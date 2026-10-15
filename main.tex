@@ -1,81 +1,54 @@
-% Toolchain test document; will be replaced by the thesis template in the next step.
-\documentclass[a4paper, 12pt]{scrreprt}
+% Layout and packages: hsrt-thesis.cls; this file only holds metadata and structure.
+\documentclass{hsrt-thesis}
 
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[ngerman]{babel}
-\usepackage{minted}
-\usepackage[autostyle=true]{csquotes}
-\usepackage{microtype}
-
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-
-\usepackage[backend=biber, style=authoryear]{biblatex}
 \addbibresource{references.bib}
+\input{acronyms}
 
-\usepackage[hidelinks]{hyperref}
-\usepackage[acronym, toc]{glossaries-extra}
-\setabbreviationstyle[acronym]{long-short}
-\makeglossaries
-
-\usepackage[ngerman]{cleveref}
-\crefname{listing}{Listing}{Listings}
-
-\newacronym{api}{API}{Application Programming Interface}
-\newglossaryentry{latex}{
-  name={\LaTeX},
-  sort={LaTeX},
-  description={Textsatzsystem auf Basis von \TeX}
+\title{KI-gestützte Ursachenanalyse für Cloud-Dienste bei Bosch eBike Systems}
+\author{Walz, Quentin}
+% Submission date; \today until it is fixed
+\date{\today}
+\academicdegree{Bachelor of Science (B.Sc.)}
+\studyprogram{Wirtschaftsinformatik}
+\faculty{Fakultät Informatik}
+\university{Hochschule Reutlingen}
+\matriculationnumber{806942}
+\examiners{%
+  Erstprüfer: & Prof.\ Dr.\ Wolfgang Blochinger \\
+  Zweitprüfer und Betreuer: & Dr.\ Stefan Kehrer (Bosch eBike Systems)
 }
 
-\title{Toolchain-Test}
-\author{Vorname Nachname}
-\date{\today}
+% Faster builds while writing: compile only the listed chapters
+% \includeonly{chapters/01-einleitung}
 
 \begin{document}
 
+\frontmatter
 \maketitle
+\include{chapters/abstract}
 \tableofcontents
+\listoffigures
+\listoftables
+\printacronyms[title={Abkürzungsverzeichnis}]
 
-\chapter{Funktionstest}
+\mainmatter
+\include{chapters/01-einleitung}
+\include{chapters/02-grundlagen}
+\include{chapters/03-verwandte-arbeiten}
+\include{chapters/04-anforderungsanalyse}
+\include{chapters/05-konzeption}
+\include{chapters/06-implementierung}
+\include{chapters/07-evaluation}
+\include{chapters/08-fazit-ausblick}
 
-Umlaute und Silbentrennung: Übergrößenträger, Straßenbahnhaltestelle,
-\enquote{deutsche Anführungszeichen}.
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
 
-Literatur: \textcite{knuth1984} beschreibt \TeX{}, \LaTeX{} wurde von
-\citeauthor{lamport1994} entwickelt \autocite{lamport1994}.
+\appendix
+\include{chapters/anhang-a}
 
-Glossar: Eine \gls{api} wird beim zweiten Mal nur als \gls{api} abgekürzt.
-Gesetzt wird mit \gls{latex}.
-
-Querverweise: siehe \cref{fig:plot} und \cref{lst:hallo}.
-
-\begin{listing}[htbp]
-  \begin{minted}{python}
-def gruss(name: str) -> str:
-    return f"Hallo, {name}!"
-  \end{minted}
-  \caption{Python-Beispiel mit minted}
-  \label{lst:hallo}
-\end{listing}
-
-Inline-Code: \mintinline{python}{print(gruss("Welt"))}.
-
-\begin{figure}[htbp]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[width=0.7\textwidth, xlabel={$x$}, ylabel={$x^2$}, grid=major]
-      \addplot[domain=-2:2, samples=50, thick, blue] {x^2};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Testplot mit pgfplots}
-  \label{fig:plot}
-\end{figure}
-
-\printglossary[type=\acronymtype, title={Abkürzungsverzeichnis}]
-\printglossary[title={Glossar}]
-\printbibliography
+\include{chapters/ki-hilfsmittel}
+% Official form of the university; replace with the filled-in and signed version
+\cleardoublepage
+\includepdf{assets/Eigenstaendigkeitserklaerung.pdf}
 
 \end{document}
