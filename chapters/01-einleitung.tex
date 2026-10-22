@@ -1,3 +1,19 @@
 % !TeX root = ../main.tex
 \chapter{Einleitung}
 \label{chap:einleitung}
+
+\section{Zielsetzung und Forschungsfragen}
+\label{sec:forschungsfragen}
+
+Im Mittelpunkt dieser Arbeit steht die folgende \gls{hff}:
+% Both lists share one layout (series) so that the HFF and UFF texts align
+\begin{enumerate}[label=\textbf{UFF\liningnums{\arabic*}}, ref=UFF\liningnums{\arabic*}, align=left, leftmargin=*, series=forschungsfragen]
+  \item[\textbf{HFF}] Wie kann ein n8n-basierter \gls{poc} konzipiert und umgesetzt werden, der technisch qualifizierte Mitarbeitende im rotierenden Bereitschaftsdienst bei der initialen Analyse und Eskalation von Cloud-Incidents unterstützt, wenn ihnen vertieftes Wissen über den jeweils betroffenen Microservice fehlt?
+\end{enumerate}
+Zur Beantwortung der \gls{hff} dienen die folgenden \glspl{uff}:
+\begin{enumerate}[resume*=forschungsfragen]
+  \item\label{uff:szenarien} Welche Backend-Fehler-Szenarien sind im Cloud-Betrieb bei Bosch eBike Systems relevant, und welche Daten (Logs, Metriken, Source-Code-Kontext) werden für eine automatisierte \gls{rca} benötigt?
+  \item\label{uff:methoden} Welche auf \glspl{llm} basierenden Methoden und Prompt-Strategien eignen sich zur Klassifikation, Zusammenfassung und Ursachenzuschreibung von Incidents in Cloud-Umgebungen?
+  \item\label{uff:orchestrierung} Wie kann n8n zur Orchestrierung eines \gls{llm}"=gestützten \gls{rca}"=Workflows eingesetzt werden, dessen Ergebnisse für diensthabende Mitarbeitende ohne vertieftes Wissen über den betroffenen Microservice nachvollziehbar und handlungsleitend sind?
+  \item\label{uff:evaluation} Inwiefern verbessert der implementierte \gls{poc} den Status quo bezüglich der \gls{rca} von Cloud-Incidents?
+\end{enumerate}
